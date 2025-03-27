@@ -1,4 +1,4 @@
-import Project from "../../Portfolio/src/components/Project";
+import Project from "../components/Project";
 
 function Portfolio() {
   return (
