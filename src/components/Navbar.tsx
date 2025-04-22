@@ -2,7 +2,6 @@ import { Flex, Box, HStack, Spacer } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import ColorModeToggle from "./ColorModeToggle";
 
-// Nav links to display
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
@@ -22,7 +21,7 @@ const Navbar = () => {
       _dark={{ bg: "gray.900" }}
     >
       <Flex align="center">
-        {/* Logo or site title */}
+        {/* Logo / site title */}
         <Box fontWeight="bold" fontSize="xl">
           Corey Parsons
         </Box>
@@ -38,10 +37,12 @@ const Navbar = () => {
                 padding: "8px 12px",
                 borderRadius: "6px",
                 fontWeight: 500,
+                textDecoration: "none",
                 backgroundColor: isActive ? "#319795" : "transparent", // teal.500
                 color: isActive ? "white" : "inherit",
-                textDecoration: "none",
+                transition: "all 0.2s ease-in-out",
               })}
+              className="nav-link"
             >
               {link.name}
             </NavLink>
