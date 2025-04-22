@@ -38,7 +38,7 @@ const Footer = () => {
         </Link>
 
         {/* Email */}
-        <Link href="mailto:cparsons0730@yahoo.com.com">
+        <Link href="mailto:cparsons0730@yahoo.com">
           <IconButton
             icon={<FaEnvelope />}
             aria-label="Email"
