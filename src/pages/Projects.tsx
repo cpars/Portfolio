@@ -1,17 +1,39 @@
-// src/pages/Projects.tsx
-import { Heading, Text, Box } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Box } from "@chakra-ui/react";
+import ProjectCard from "../components/ProjectCard";
 
 const Projects = () => {
+  // Sample project data
+  const projects = [
+    {
+      title: "Weaver",
+      description:
+        "A collaborative story-writing platform with branching paths and social interaction.",
+      tech: ["React", "GraphQL", "TypeScript", "MongoDB"],
+      demoLink: "https://weaver-app.netlify.app",
+      githubLink: "https://github.com/your-username/weaver",
+    },
+    {
+      title: "Tech Quiz App",
+      description:
+        "An interactive MERN stack quiz app with Cypress testing and CI/CD setup.",
+      tech: ["MERN", "Cypress", "CI/CD"],
+      demoLink: "https://techquiz-app.render.com",
+      githubLink: "https://github.com/your-username/techquiz",
+    },
+    // Add more projects as needed
+  ];
+
   return (
     <Box>
-      <Heading as="h1" mb={4}>
-        Projects
+      <Heading as="h1" mb={6}>
+        My Projects
       </Heading>
-      <Text fontSize="lg">
-        Here are some of my favorite projects that showcase my skills in React,
-        Node.js, PostgreSQL, and more.
-      </Text>
-      {/* Later we'll add ProjectCards here */}
+
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+        {projects.map((project) => (
+          <ProjectCard key={project.title} {...project} />
+        ))}
+      </SimpleGrid>
     </Box>
   );
 };
