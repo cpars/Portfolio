@@ -1,16 +1,44 @@
 // src/pages/Home.tsx
-import { Heading, Text, Box } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  Button,
+  VStack,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
+import { Avatar } from "@chakra-ui/react";
 
 const Home = () => {
   return (
-    <Box>
-      <Heading as="h1" mb={4}>
-        Welcome to My Portfolio
-      </Heading>
-      <Text fontSize="lg">
-        I'm Corey Parsons, a full-stack web developer with a passion for clean
-        code and creative solutions.
-      </Text>
+    <Box
+      minHeight="80vh"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      px={6}
+    >
+      <VStack spacing={6} textAlign="center">
+        <Avatar size="2xl" name="Corey Parsons" src="/images/avatar.jpg" />
+        <Heading as="h1" size="2xl">
+          Hey, I’m Corey 👋
+        </Heading>
+
+        <Text
+          fontSize="xl"
+          maxW="600px"
+          color={useColorModeValue("gray.700", "gray.300")}
+        >
+          I'm a full-stack web developer who loves solving real-world problems
+          with clean, efficient code. I specialize in building modern web apps
+          using React, Node.js, and PostgreSQL.
+        </Text>
+
+        <Button as={RouterLink} to="/projects" colorScheme="teal" size="lg">
+          View My Projects
+        </Button>
+      </VStack>
     </Box>
   );
 };
