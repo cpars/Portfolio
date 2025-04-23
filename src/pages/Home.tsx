@@ -10,10 +10,12 @@ import {
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 const Home = () => {
   return (
     <PageWrapper>
+      <AnimatedBackground />
       <Box
         minHeight="80vh"
         display="flex"
