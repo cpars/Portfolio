@@ -1,6 +1,19 @@
-import { Flex, Box, HStack, Spacer } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import {
+  Flex,
+  Box,
+  HStack,
+  Spacer,
+  Button,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { useLocation } from "react-router-dom";
+import { useDelayedNavigation } from "../hooks/useDelayedNavigation";
 import ColorModeToggle from "./ColorModeToggle";
+
+// Props to receive the setLoading function from App
+type NavbarProps = {
+  setLoading: (val: boolean) => void;
+};
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -10,18 +23,23 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ setLoading }: NavbarProps) => {
+  const location = useLocation();
+  const delayedNavigate = useDelayedNavigation(setLoading);
+
+  // Function to determine active link style
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <Box
       as="nav"
       boxShadow="md"
       py={4}
       px={6}
-      bg="gray.100"
-      _dark={{ bg: "gray.900" }}
+      bg={useColorModeValue("gray.100", "gray.900")}
     >
       <Flex align="center">
-        {/* Logo / site title */}
+        {/* Site name or logo */}
         <Box fontWeight="bold" fontSize="xl">
           Corey Parsons
         </Box>
@@ -30,22 +48,16 @@ const Navbar = () => {
 
         <HStack spacing={4}>
           {navLinks.map((link) => (
-            <NavLink
+            <Button
               key={link.name}
-              to={link.path}
-              style={({ isActive }) => ({
-                padding: "8px 12px",
-                borderRadius: "6px",
-                fontWeight: 500,
-                textDecoration: "none",
-                backgroundColor: isActive ? "#319795" : "transparent", // teal.500
-                color: isActive ? "white" : "inherit",
-                transition: "all 0.2s ease-in-out",
-              })}
-              className="nav-link"
+              onClick={() => delayedNavigate(link.path)}
+              variant={isActive(link.path) ? "solid" : "ghost"}
+              colorScheme={isActive(link.path) ? "teal" : undefined}
+              size="sm"
+              px={3}
             >
               {link.name}
-            </NavLink>
+            </Button>
           ))}
 
           <ColorModeToggle />
