@@ -8,10 +8,12 @@ import {
   Button,
 } from "@chakra-ui/react";
 import PageWrapper from "../components/PageWrapper";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 const Contact = () => {
   return (
     <PageWrapper>
+      <AnimatedBackground />
       <Box>
         <Heading as="h1" mb={4}>
           Contact Me

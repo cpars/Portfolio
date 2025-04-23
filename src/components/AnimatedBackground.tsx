@@ -6,7 +6,7 @@ const MotionDiv = motion.div;
 
 const AnimatedBackground = () => {
   const gradient = useColorModeValue(
-    "linear-gradient(to right, #e6fffa, #bee3f8, #fbb6ce)",
+    "linear-gradient(to right, #c8e6c9, #b2dfdb, #bbdefb)",
     "linear-gradient(to right, #1a202c, #234e52, #2a4365)"
   );
 
