@@ -1,23 +1,39 @@
-// src/pages/About.tsx
+import { Heading, Text, Box, Button, Stack } from "@chakra-ui/react";
 import PageWrapper from "../components/PageWrapper";
-import { Heading, Text, Box } from "@chakra-ui/react";
 
-const About = () => {
+const Resume = () => {
   return (
     <PageWrapper>
       <Box>
         <Heading as="h1" mb={4}>
-          About Me
+          Resume
         </Heading>
-        <Text fontSize="lg">
-          I’m a software developer with a background in software testing and a
-          passion for building web apps that make life easier. I’m currently
-          leveling up with a full-stack coding bootcamp and loving every minute
-          of it.
+        <Text fontSize="lg" mb={4}>
+          Download my resume below or preview it in your browser to check out my
+          experience and skills.
         </Text>
+
+        <Stack direction={{ base: "column", sm: "row" }} spacing={4}>
+          <Button
+            colorScheme="teal"
+            as="a"
+            href="/Corey-Parsons-Resume.pdf"
+            target="_blank"
+          >
+            Download Resume (PDF)
+          </Button>
+          <Button
+            variant="outline"
+            as="a"
+            href="/Corey-Parsons-Resume.pdf"
+            target="_blank"
+          >
+            Preview Resume
+          </Button>
+        </Stack>
       </Box>
     </PageWrapper>
   );
 };
 
-export default About;
+export default Resume;
