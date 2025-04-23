@@ -1,5 +1,6 @@
 import { Heading, SimpleGrid, Box } from "@chakra-ui/react";
 import ProjectCard from "../components/ProjectCard";
+import PageWrapper from "../components/PageWrapper"; // 👈 Add this
 
 const Projects = () => {
   // Sample project data
@@ -24,17 +25,19 @@ const Projects = () => {
   ];
 
   return (
-    <Box>
-      <Heading as="h1" mb={6}>
-        My Projects
-      </Heading>
+    <PageWrapper>
+      <Box>
+        <Heading as="h1" mb={6}>
+          My Projects
+        </Heading>
 
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-        {projects.map((project) => (
-          <ProjectCard key={project.title} {...project} />
-        ))}
-      </SimpleGrid>
-    </Box>
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+          {projects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
+        </SimpleGrid>
+      </Box>
+    </PageWrapper>
   );
 };
 

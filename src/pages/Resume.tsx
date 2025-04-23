@@ -1,26 +1,38 @@
-// src/pages/Resume.tsx
-import { Heading, Text, Box, Button } from "@chakra-ui/react";
+import { Heading, Text, Box, Button, Stack } from "@chakra-ui/react";
+import PageWrapper from "../components/PageWrapper";
 
 const Resume = () => {
   return (
-    <Box>
-      <Heading as="h1" mb={4}>
-        Resume
-      </Heading>
-      <Text fontSize="lg" mb={4}>
-        Download my resume below or scroll through the highlights of my
-        experience and skills.
-      </Text>
-      {/* Replace with actual link when your resume PDF is ready */}
-      <Button
-        colorScheme="teal"
-        as="a"
-        href="/Corey-Parsons-Resume.pdf"
-        target="_blank"
-      >
-        Download Resume (PDF)
-      </Button>
-    </Box>
+    <PageWrapper>
+      <Box>
+        <Heading as="h1" mb={4}>
+          Resume
+        </Heading>
+        <Text fontSize="lg" mb={4}>
+          Download my resume below or preview it in your browser to check out my
+          experience and skills.
+        </Text>
+
+        <Stack direction={{ base: "column", sm: "row" }} spacing={4}>
+          <Button
+            colorScheme="teal"
+            as="a"
+            href="/Corey-Parsons-Resume.pdf"
+            target="_blank"
+          >
+            Download Resume (PDF)
+          </Button>
+          <Button
+            variant="outline"
+            as="a"
+            href="/Corey-Parsons-Resume.pdf"
+            target="_blank"
+          >
+            Preview Resume
+          </Button>
+        </Stack>
+      </Box>
+    </PageWrapper>
   );
 };
 
