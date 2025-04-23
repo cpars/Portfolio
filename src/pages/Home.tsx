@@ -11,11 +11,13 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
 import AnimatedBackground from "../components/AnimatedBackground";
+import OrbitingLines from "../components/OrbitingLines";
 
 const Home = () => {
   return (
     <PageWrapper>
       <AnimatedBackground />
+      <OrbitingLines />
       <Box
         minHeight="80vh"
         display="flex"
