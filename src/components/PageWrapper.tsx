@@ -14,7 +14,13 @@ const PageWrapper = ({ children, delay = 0, ...rest }: PageWrapperProps) => {
     <MotionBox
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
+      transition={
+        {
+          duration: 0.5,
+          delay,
+          ease: "easeInOut", // optional, helps silence some type errors
+        } as any
+      }
       {...rest}
     >
       {children}
