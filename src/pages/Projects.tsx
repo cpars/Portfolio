@@ -2,6 +2,7 @@ import { Heading, SimpleGrid, Box } from "@chakra-ui/react";
 import ProjectCard from "../components/ProjectCard";
 import PageWrapper from "../components/PageWrapper"; // 👈 Add this
 import AnimatedBackground from "../components/AnimatedBackground";
+import OrbitingLines from "../components/OrbitingLines";
 
 const Projects = () => {
   // Sample project data
@@ -28,6 +29,7 @@ const Projects = () => {
   return (
     <PageWrapper>
       <AnimatedBackground />
+      <OrbitingLines />
       <Box>
         <Heading as="h1" mb={6}>
           My Projects
