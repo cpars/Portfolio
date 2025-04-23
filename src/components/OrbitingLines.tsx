@@ -64,7 +64,7 @@ const OrbitingLines = () => {
           {
             ...sharedStyles,
             filter: "blur(12px)",
-            transform: motionTransform,
+            transform: motionTransform as unknown as string,
           } as React.CSSProperties
         }
         initial={{ rotate: 0, opacity: 0.5 }}
