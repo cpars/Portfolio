@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 import animationData from "../assets/loading.json";
 import { motion, AnimatePresence } from "framer-motion";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 const LoadingScreen = () => {
   return (
