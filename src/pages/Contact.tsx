@@ -9,11 +9,13 @@ import {
 } from "@chakra-ui/react";
 import PageWrapper from "../components/PageWrapper";
 import AnimatedBackground from "../components/AnimatedBackground";
+import OrbitingLines from "../components/OrbitingLines";
 
 const Contact = () => {
   return (
     <PageWrapper>
       <AnimatedBackground />
+      <OrbitingLines />
       <Box>
         <Heading as="h1" mb={4}>
           Contact Me

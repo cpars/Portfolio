@@ -1,5 +1,11 @@
-import { motion } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useMotionTemplate,
+} from "framer-motion";
 import { useColorModeValue } from "@chakra-ui/react";
+import React, { useEffect } from "react";
 
 const MotionSvg = motion.svg;
 
@@ -10,8 +16,8 @@ const OrbitingLines = () => {
   );
 
   const glowColor = useColorModeValue(
-    "rgba(0, 150, 255, 0.15)", // light mode glow (blueish)
-    "rgba(0, 255, 255, 0.08)" // dark mode glow (cyan-ish)
+    "rgba(0, 150, 255, 0.15)", // Light mode
+    "rgba(0, 255, 255, 0.08)" // Dark mode
   );
 
   const sharedStyles = {
@@ -24,9 +30,33 @@ const OrbitingLines = () => {
     pointerEvents: "none",
   } as React.CSSProperties;
 
+  // Motion values for interactivity
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  // Smooth them with spring physics
+  const smoothX = useSpring(x, { stiffness: 50, damping: 20 });
+  const smoothY = useSpring(y, { stiffness: 50, damping: 20 });
+
+  // Combine x/y into a CSS transform string
+  const motionTransform = useMotionTemplate`translate(${smoothX}px, ${smoothY}px)`;
+
+  // Mouse move listener
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const offsetX = (e.clientX / window.innerWidth - 0.5) * 200; // wide range
+      const offsetY = (e.clientY / window.innerHeight - 0.5) * 200;
+      x.set(offsetX);
+      y.set(offsetY);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <>
-      {/* Blurred glow layer */}
+      {/* Glow layer with blur and pulse */}
       <MotionSvg
         viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid slice"
@@ -34,6 +64,7 @@ const OrbitingLines = () => {
           {
             ...sharedStyles,
             filter: "blur(12px)",
+            transform: motionTransform,
           } as React.CSSProperties
         }
         initial={{ rotate: 0, opacity: 0.5 }}
