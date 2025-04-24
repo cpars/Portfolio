@@ -26,6 +26,10 @@ const phrases = [
   "I solve real-world problems.",
   "I love futuristic tech.",
   "I craft sleek, scalable web apps.",
+  "I write clean, scalable code.",
+  "I debug like a detective.",
+  "I build with React and Node.js.",
+  "I turn complex into simple.",
 ];
 
 const MotionBox = motion(Box);
