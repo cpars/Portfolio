@@ -6,6 +6,8 @@ import {
   Flex,
   Avatar,
   Stack,
+  Image,
+  HStack,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
@@ -59,6 +61,7 @@ const Home = () => {
       <AnimatedBackground />
       <OrbitingLines />
 
+      {/* Hero Section */}
       <Flex
         minH="80vh"
         px={8}
@@ -70,24 +73,41 @@ const Home = () => {
         position="relative"
         zIndex={1}
       >
-        {/* Avatar Section */}
+        {/* Avatar with Glow */}
         <MotionBox
+          position="relative"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          display="flex"
-          justifyContent="center"
+          whileHover={{
+            rotate: [0, 2, -2, 0],
+            transition: { duration: 2, repeat: Infinity },
+          }}
         >
+          {/* Glow Ring */}
+          <Box
+            position="absolute"
+            boxSize="240px"
+            borderRadius="full"
+            bg="teal.300"
+            filter="blur(60px)"
+            opacity={0.25}
+            zIndex={0}
+          />
           <Avatar
-            size="2xl"
+            boxSize="200px"
             name="Corey Parsons"
             src="/images/avatar.jpg"
-            boxShadow="0 0 25px rgba(0,255,255,0.35)"
-            border="2px solid teal"
+            border="3px solid teal"
+            boxShadow="0 0 30px rgba(0,255,255,0.35)"
+            zIndex={1}
           />
         </MotionBox>
 
-        {/* Hero Text Section */}
+        {/* Hero Text */}
         <MotionBox
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -135,6 +155,46 @@ const Home = () => {
           </Stack>
         </MotionBox>
       </Flex>
+
+      {/* Tech Stack Section */}
+      <Heading as="h2" size="md" textAlign="center" mt={16} mb={4}>
+        Tech Stack
+      </Heading>
+
+      <HStack
+        spacing={6}
+        justify="center"
+        mt={4}
+        flexWrap="wrap"
+        px={6}
+        mb={16}
+      >
+        {[
+          "React",
+          "TypeScript",
+          "JavaScript",
+          "Node.js",
+          "GraphQL",
+          "PostgresSQL",
+          "MongoDB",
+          "Python",
+          "GitHub",
+        ].map((tech) => (
+          <Image
+            key={tech}
+            src={`/tech/${tech}.svg`}
+            alt={tech}
+            boxSize={{ base: "50px", md: "60px" }}
+            opacity={0.75}
+            transition="all 0.3s ease"
+            _hover={{
+              opacity: 1,
+              transform: "scale(1.1)",
+              filter: "drop-shadow(0 0 4px teal)",
+            }}
+          />
+        ))}
+      </HStack>
     </PageWrapper>
   );
 };
