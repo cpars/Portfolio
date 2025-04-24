@@ -9,16 +9,16 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
-import { Link as RouterLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-// Custom animation and layout components
+// Custom components
 import AnimatedBackground from "../components/AnimatedBackground";
 import OrbitingLines from "../components/OrbitingLines";
 import PageWrapper from "../components/PageWrapper";
 
-// Typewriter text options
+// Phrases for the typewriter effect
 const phrases = [
   "I build interactive UIs.",
   "I solve real-world problems.",
@@ -26,34 +26,33 @@ const phrases = [
   "I craft sleek, scalable web apps.",
 ];
 
-// Custom keyframes for blinking effect
+const MotionBox = motion(Box);
+
+// Blinking cursor animation
 const blink = keyframes`
   0%, 49% { opacity: 1; }
   50%, 100% { opacity: 0; }
 `;
 
-const MotionBox = motion(Box);
-
 const Home = () => {
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
 
-  // Typing effect logic
+  const textColor = useColorModeValue("gray.700", "gray.300");
+  const navigate = useNavigate();
+
   useEffect(() => {
-    let currentPhrase = phrases[index % phrases.length];
+    const currentPhrase = phrases[index % phrases.length];
     let charIndex = 0;
-    let typing = setInterval(() => {
+    const typing = setInterval(() => {
       setDisplayText(currentPhrase.slice(0, ++charIndex));
       if (charIndex === currentPhrase.length) {
         clearInterval(typing);
-        setTimeout(() => setIndex(index + 1), 2000); // delay before switching phrases
+        setTimeout(() => setIndex(index + 1), 2000);
       }
     }, 75);
-
     return () => clearInterval(typing);
   }, [index]);
-
-  const textColor = useColorModeValue("gray.700", "gray.300");
 
   return (
     <PageWrapper>
@@ -71,7 +70,7 @@ const Home = () => {
         position="relative"
         zIndex={1}
       >
-        {/* Avatar with glow */}
+        {/* Avatar Section */}
         <MotionBox
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -88,7 +87,7 @@ const Home = () => {
           />
         </MotionBox>
 
-        {/* Hero text */}
+        {/* Hero Text Section */}
         <MotionBox
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -118,12 +117,15 @@ const Home = () => {
           </Text>
 
           <Stack direction={{ base: "column", sm: "row" }} spacing={4} mt={6}>
-            <Button as={RouterLink} to="/projects" colorScheme="teal" size="lg">
+            <Button
+              onClick={() => navigate("/projects")}
+              colorScheme="teal"
+              size="lg"
+            >
               View Projects
             </Button>
             <Button
-              as={RouterLink}
-              to="/contact"
+              onClick={() => navigate("/contact")}
               variant="outline"
               colorScheme="teal"
               size="lg"
