@@ -157,7 +157,17 @@ const Home = () => {
       </Flex>
 
       {/* Tech Stack Section */}
-      <Heading as="h2" size="md" textAlign="center" mt={16} mb={4}>
+      <Heading
+        as="h2"
+        size="md"
+        textAlign="center"
+        mt={16}
+        mb={4}
+        letterSpacing="widest"
+        textTransform="uppercase"
+        color="teal.400"
+        textShadow="0 0 8px rgba(0, 255, 255, 0.4)"
+      >
         Tech Stack
       </Heading>
 
