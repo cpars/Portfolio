@@ -8,6 +8,7 @@ import {
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { keyframes } from "@emotion/react";
 import { Link as RouterLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -24,6 +25,12 @@ const phrases = [
   "I love futuristic tech.",
   "I craft sleek, scalable web apps.",
 ];
+
+// Custom keyframes for blinking effect
+const blink = keyframes`
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+`;
 
 const MotionBox = motion(Box);
 
@@ -99,8 +106,14 @@ const Home = () => {
 
           <Text fontSize="xl" mb={4} color={textColor} minH="32px">
             {displayText}
-            <Box as="span" ml={1} color="teal.300" fontWeight="bold">
-              |
+            <Box
+              as="span"
+              ml={1}
+              fontWeight="bold"
+              color="teal.300"
+              animation={`${blink} 1.2s step-start infinite`}
+            >
+              ▍
             </Box>
           </Text>
 
