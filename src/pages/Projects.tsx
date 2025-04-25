@@ -1,37 +1,26 @@
 import { Heading, SimpleGrid, Box } from "@chakra-ui/react";
 import ProjectCard from "../components/ProjectCard";
-import PageWrapper from "../components/PageWrapper"; // 👈 Add this
+import PageWrapper from "../components/PageWrapper";
 import AnimatedBackground from "../components/AnimatedBackground";
 import OrbitingLines from "../components/OrbitingLines";
+import projects from "../data/projects"; // 🔥 imported here
 
 const Projects = () => {
-  // Sample project data
-  const projects = [
-    {
-      title: "Weaver",
-      description:
-        "A collaborative story-writing platform with branching paths and social interaction.",
-      tech: ["React", "GraphQL", "TypeScript", "MongoDB"],
-      demoLink: "https://weaver-app.netlify.app",
-      githubLink: "https://github.com/your-username/weaver",
-    },
-    {
-      title: "Tech Quiz App",
-      description:
-        "An interactive MERN stack quiz app with Cypress testing and CI/CD setup.",
-      tech: ["MERN", "Cypress", "CI/CD"],
-      demoLink: "https://techquiz-app.render.com",
-      githubLink: "https://github.com/your-username/techquiz",
-    },
-    // Add more projects as needed
-  ];
-
   return (
     <PageWrapper>
       <AnimatedBackground />
       <OrbitingLines />
-      <Box>
-        <Heading as="h1" mb={6}>
+
+      <Box zIndex={1} position="relative" px={6}>
+        <Heading
+          as="h1"
+          size="xl"
+          mb={8}
+          textAlign="center"
+          color="teal.300"
+          textTransform="uppercase"
+          letterSpacing="wider"
+        >
           My Projects
         </Heading>
 
