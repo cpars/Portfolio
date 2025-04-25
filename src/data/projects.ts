@@ -9,22 +9,46 @@ const projects = [
       githubLink: "https://github.com/coreyparsons/weaver",
     },
     {
-      title: "Tech Quiz App",
-      description:
-        "An interactive MERN stack quiz app with Cypress tests, GitHub Actions, and CI/CD setup.",
-      tech: ["MERN", "Cypress", "Vitest", "CI/CD"],
-      image: "/images/quiz-app.jpg",
-      demoLink: "https://techquiz-app.render.com",
-      githubLink: "https://github.com/coreyparsons/techquiz",
-    },
-    {
-      title: "Google Books Search",
-      description:
-        "Search and save books using the Google Books API with a React + GraphQL front end.",
-      tech: ["React", "GraphQL", "MongoDB", "Apollo"],
-      demoLink: "https://googlebooks-search.onrender.com",
-      githubLink: "https://github.com/coreyparsons/googlebooks-app",
-    },
+        title: "Tech Quiz App with CI/CD",
+        description:
+          "A full-stack tech quiz application built to demonstrate automated testing and deployment workflows. It runs Cypress component tests on pull requests to the 'develop' branch and auto-deploys to Render when merged into 'main'.",
+        tech: [
+          "React",
+          "Tailwind CSS",
+          "Node.js",
+          "Express",
+          "MongoDB",
+          "Cypress",
+          "GitHub Actions",
+          "CI/CD",
+          "Render"
+        ],
+        demoLink: "https://techquiz-app.render.com",
+        githubLink: "https://github.com/coreyparsons/techquiz",
+        image: "/images/quiz-app.png",
+      },
+      
+      {
+        title: "Book Search Engine",
+        description:
+          "A full-stack web application that lets users search for books via the Google Books API, save favorites, and manage them with secure JWT-based authentication. Built with GraphQL, Apollo, React, and TypeScript.",
+        tech: [
+          "React",
+          "Apollo Client",
+          "GraphQL",
+          "Node.js",
+          "Express",
+          "MongoDB",
+          "Mongoose",
+          "TypeScript",
+          "JWT",
+          "bcrypt",
+        ],
+        demoLink: "https://book-search-engine-lx96.onrender.com/",
+        githubLink: "https://github.com/coreyparsons/book-search-engine",
+        image: "/images/googlebooks.png"
+      }
+      ,
     {
       title: "Kanban Board",
       description:
