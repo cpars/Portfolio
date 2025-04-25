@@ -4,7 +4,7 @@ const projects = [
       description:
         "A collaborative storytelling app where users create branching narratives, comment, and vote.",
       tech: ["React", "TypeScript", "GraphQL", "MongoDB", "Apollo", "Cypress"],
-      image: "/images/weaver-thumbnail.jpg", // optional
+      image: "../../images/Weaver_Projects_Page.png", // optional
       demoLink: "https://weaver-app.netlify.app",
       githubLink: "https://github.com/coreyparsons/weaver",
     },
