@@ -5,8 +5,8 @@ const projects = [
         "A collaborative storytelling app where users create branching narratives, comment, and vote.",
       tech: ["React", "TypeScript", "GraphQL", "MongoDB", "Apollo", "Cypress"],
       image: "../../images/Weaver_Projects_Page.png", // optional
-      demoLink: "https://weaver-app.netlify.app",
-      githubLink: "https://github.com/coreyparsons/weaver",
+      demoLink: "https://weaver-9su3.onrender.com/",
+      githubLink: "https://github.com/ccasalme/Weaver",
     },
     {
         title: "Tech Quiz App with CI/CD",
@@ -45,7 +45,7 @@ const projects = [
           "bcrypt",
         ],
         demoLink: "https://book-search-engine-lx96.onrender.com/",
-        githubLink: "https://github.com/coreyparsons/book-search-engine",
+        githubLink: "https://github.com/cpars/Book_Search_Engine",
         image: "/images/googlebooks.png"
       }
       ,
