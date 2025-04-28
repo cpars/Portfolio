@@ -1,4 +1,3 @@
-// src/components/ProjectCard.tsx
 import {
   Box,
   Heading,
@@ -10,6 +9,7 @@ import {
   HStack,
   Button,
 } from "@chakra-ui/react";
+import VideoModal from "./VideoModal";
 
 type ProjectCardProps = {
   title: string;
@@ -18,6 +18,7 @@ type ProjectCardProps = {
   image?: string;
   demoLink?: string;
   githubLink?: string;
+  testLink?: string;
 };
 
 const ProjectCard = ({
@@ -27,6 +28,7 @@ const ProjectCard = ({
   image,
   demoLink,
   githubLink,
+  testLink,
 }: ProjectCardProps) => {
   return (
     <Box
@@ -38,7 +40,6 @@ const ProjectCard = ({
       _dark={{ bg: "gray.800" }}
       boxShadow="md"
     >
-      {/* Optional image */}
       {image && (
         <Image
           src={image}
@@ -54,7 +55,6 @@ const ProjectCard = ({
 
       <Text mb={4}>{description}</Text>
 
-      {/* Tech stack tags */}
       <HStack spacing={2} mb={4} wrap="wrap">
         {tech.map((item) => (
           <Tag key={item} colorScheme="teal">
@@ -63,19 +63,28 @@ const ProjectCard = ({
         ))}
       </HStack>
 
-      {/* Action buttons */}
       <Stack direction="row" spacing={4}>
-        {demoLink && (
-          <Button
-            as={Link}
-            href={demoLink}
-            isExternal
-            colorScheme="teal"
-            size="sm"
-          >
-            Live Demo
-          </Button>
+        {/* Demo Link (Primary) */}
+        {demoLink && demoLink.includes("youtube.com") ? (
+          <VideoModal
+            videoUrl={demoLink.replace("watch?v=", "embed/")}
+            buttonLabel="Watch Demo"
+          />
+        ) : (
+          demoLink && (
+            <Button
+              as={Link}
+              href={demoLink}
+              isExternal
+              colorScheme="teal"
+              size="sm"
+            >
+              Live Demo
+            </Button>
+          )
         )}
+
+        {/* GitHub Link */}
         {githubLink && (
           <Button
             as={Link}
@@ -86,6 +95,26 @@ const ProjectCard = ({
           >
             GitHub
           </Button>
+        )}
+
+        {/* Test Link (Secondary) */}
+        {testLink && testLink.includes("youtu.be") ? (
+          <VideoModal
+            videoUrl={testLink.replace("watch?v=", "embed/")}
+            buttonLabel="Cypress Demo"
+          />
+        ) : (
+          testLink && (
+            <Button
+              as={Link}
+              href={testLink}
+              isExternal
+              variant="outline"
+              size="sm"
+            >
+              Test Demo
+            </Button>
+          )
         )}
       </Stack>
     </Box>
