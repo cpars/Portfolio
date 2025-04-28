@@ -18,6 +18,7 @@ type ProjectCardProps = {
   image?: string;
   demoLink?: string;
   githubLink?: string;
+  testLink?: string; // Optional test link
 };
 
 const ProjectCard = ({
@@ -27,6 +28,7 @@ const ProjectCard = ({
   image,
   demoLink,
   githubLink,
+  testLink, // Optional test link
 }: ProjectCardProps) => {
   return (
     <Box
@@ -85,6 +87,17 @@ const ProjectCard = ({
             size="sm"
           >
             GitHub
+          </Button>
+        )}
+        {testLink && (
+          <Button
+            as={Link}
+            href={testLink}
+            isExternal
+            variant="outline"
+            size="sm"
+          >
+            Cypress Demo
           </Button>
         )}
       </Stack>

@@ -23,9 +23,10 @@ const projects = [
           "CI/CD",
           "Render"
         ],
-        demoLink: "https://techquiz-app.render.com",
-        githubLink: "https://github.com/coreyparsons/techquiz",
-        image: "/images/quiz-app.png",
+        demoLink: "https://github-actions-cicd-rwie.onrender.com/",
+        githubLink: "https://github.com/cpars/GitHub_Actions_CICD",
+        image: "/images/Tech-Quiz-Screenshot.png",
+        testLink: "https://youtu.be/VwRN_xHVUUs",
       },
       
       {
@@ -46,7 +47,7 @@ const projects = [
         ],
         demoLink: "https://book-search-engine-lx96.onrender.com/",
         githubLink: "https://github.com/cpars/Book_Search_Engine",
-        image: "/images/googlebooks.png"
+        image: "/images/Book-Search-Engine-Screenshot.png"
       }
       ,
     {
@@ -57,6 +58,33 @@ const projects = [
       demoLink: "https://kanban-app-corey.onrender.com",
       githubLink: "https://github.com/coreyparsons/kanban-board",
     },
+    {
+      title: "Vehicle Builder CLI",
+      description:
+        "A command-line application that allows users to create, manage, and interact with different types of vehicles such as Cars, Trucks, and Motorbikes. Built with Node.js, TypeScript, and Inquirer.js.",
+      tech: ["Node.js", "TypeScript", "Inquirer.js"],
+      githubLink: "https://github.com/cpars/Vehicle-Builder", 
+      demoLink: "https://app.screencastify.com/v3/watch/a8dzX94wZ4gr7s4QcS2k", 
+      image: "/images/Vehicle-Builder.gif", 
+    },
+    {
+      title: "Professional README Generator",
+      description:
+        "A command-line application that prompts the user for project information and generates a clean, professional README.md file. Built with Node.js and Inquirer.js.",
+      tech: ["Node.js", "Inquirer.js", "JavaScript"],
+      githubLink: "https://github.com/cpars/Professional-README-Generator", 
+      demoLink: "https://github.com/your-username/readme-generator#readme", // Or link to a demo video or gif
+      image: "/images/readme-generator.gif", // Optional: if you make a recording
+    }
+, 
+    {
+      title: "Weather Dashboard",
+      description:
+        "A web application that allows users to search for current weather conditions and a 5-day forecast for any city. Built with HTML, CSS, JavaScript, and the OpenWeatherMap API.",
+      tech: ["HTML", "CSS", "JavaScript", "OpenWeatherMap API"],
+      demoLink: "https://your-weather-dashboard-demo-link.com", // Update with your real demo link
+      githubLink: ""
+    }
   ];
   
   export default projects;
