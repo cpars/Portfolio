@@ -10,12 +10,11 @@ import {
   HStack,
   Button,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion"; // 🌀 Import motion
+import { motion } from "framer-motion"; // ✨ Import motion
+import VideoModal from "./VideoModal";
 
-import VideoModal from "./VideoModal"; // keeping your video modal support
-
-// Make a motion wrapper around Box
-const MotionBox = motion(Box);
+// Motion-wrapped Box
+const MotionBox = motion.create(Box);
 
 type ProjectCardProps = {
   title: string;
@@ -24,7 +23,7 @@ type ProjectCardProps = {
   image?: string;
   demoLink?: string;
   githubLink?: string;
-  testLink?: string; // Optional test link
+  testLink?: string;
 };
 
 const ProjectCard = ({
@@ -38,6 +37,15 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
   return (
     <MotionBox
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      transition={{ duration: 0.6 }}
+      whileHover={{
+        scale: 1.03,
+        boxShadow: "0px 8px 25px rgba(0, 255, 255, 0.2)",
+      }}
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
@@ -45,16 +53,8 @@ const ProjectCard = ({
       bg="white"
       _dark={{ bg: "gray.800" }}
       boxShadow="md"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6 }}
-      whileHover={{
-        scale: 1.03,
-        boxShadow: "0px 8px 25px rgba(0, 255, 255, 0.2)",
-      }}
     >
-      {/* Optional image */}
+      {/* Optional Image */}
       {image && (
         <Image
           src={image}
@@ -70,7 +70,7 @@ const ProjectCard = ({
 
       <Text mb={4}>{description}</Text>
 
-      {/* Tech stack tags */}
+      {/* Tech Stack Tags */}
       <HStack spacing={2} mb={4} wrap="wrap">
         {tech.map((item) => (
           <Tag key={item} colorScheme="teal">
@@ -79,24 +79,29 @@ const ProjectCard = ({
         ))}
       </HStack>
 
-      {/* Action buttons */}
+      {/* Buttons Section */}
       <Stack direction="row" spacing={4}>
-        {demoLink && demoLink.includes("youtu") ? (
+        {/* Demo Link */}
+        {demoLink && demoLink.includes("youtu.be") ? (
           <VideoModal
             videoUrl={demoLink.replace("watch?v=", "embed/")}
             buttonLabel="Watch Demo"
           />
         ) : (
-          <Button
-            as={Link}
-            href={demoLink}
-            isExternal
-            colorScheme="teal"
-            size="sm"
-          >
-            Live Demo
-          </Button>
+          demoLink && (
+            <Button
+              as={Link}
+              href={demoLink}
+              isExternal
+              colorScheme="teal"
+              size="sm"
+            >
+              Live Demo
+            </Button>
+          )
         )}
+
+        {/* GitHub Link */}
         {githubLink && (
           <Button
             as={Link}
@@ -108,10 +113,12 @@ const ProjectCard = ({
             GitHub
           </Button>
         )}
-        {testLink && testLink.includes("youtu") ? (
+
+        {/* Test Link */}
+        {testLink && testLink.includes("youtu.be") ? (
           <VideoModal
             videoUrl={testLink.replace("watch?v=", "embed/")}
-            buttonLabel="Watch Demo"
+            buttonLabel="Cypress Demo"
           />
         ) : (
           testLink && (
@@ -122,7 +129,7 @@ const ProjectCard = ({
               variant="outline"
               size="sm"
             >
-              Cypress Demo
+              Test Demo
             </Button>
           )
         )}
