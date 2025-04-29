@@ -81,7 +81,12 @@ const ProjectCard = ({
 
       {/* Action buttons */}
       <Stack direction="row" spacing={4}>
-        {demoLink && (
+        {demoLink && demoLink.includes("youtu") ? (
+          <VideoModal
+            videoUrl={demoLink.replace("watch?v=", "embed/")}
+            buttonLabel="Watch Demo"
+          />
+        ) : (
           <Button
             as={Link}
             href={demoLink}
