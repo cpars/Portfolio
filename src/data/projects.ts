@@ -73,8 +73,8 @@ const projects = [
         "A command-line application that prompts the user for project information and generates a clean, professional README.md file. Built with Node.js and Inquirer.js.",
       tech: ["Node.js", "Inquirer.js", "JavaScript"],
       githubLink: "https://github.com/cpars/Professional-README-Generator", 
-      demoLink: "https://github.com/your-username/readme-generator#readme", // Or link to a demo video or gif
-      image: "/images/readme-generator.gif", // Optional: if you make a recording
+      demoLink: "https://youtu.be/XfhK838d1io", 
+      image: "/images/readme-generator.gif", 
     }
 , 
     {
@@ -82,7 +82,7 @@ const projects = [
       description:
         "A web application that allows users to search for current weather conditions and a 5-day forecast for any city. Built with HTML, CSS, JavaScript, and the OpenWeatherMap API.",
       tech: ["HTML", "CSS", "JavaScript", "OpenWeatherMap API"],
-      demoLink: "https://your-weather-dashboard-demo-link.com", // Update with your real demo link
+      demoLink: "https://your-weather-dashboard-demo-link.com", 
       githubLink: ""
     }
   ];
