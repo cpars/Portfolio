@@ -81,9 +81,10 @@ const projects = [
       title: "Weather Dashboard",
       description:
         "A web application that allows users to search for current weather conditions and a 5-day forecast for any city. Built with HTML, CSS, JavaScript, and the OpenWeatherMap API.",
-      tech: ["HTML", "CSS", "JavaScript", "OpenWeatherMap API"],
-      demoLink: "https://your-weather-dashboard-demo-link.com", 
-      githubLink: ""
+      tech: ["HTML", "CSS", "TypeScript", "OpenWeatherMap API"],
+      demoLink: "https://weather-dashboard-0y15.onrender.com/", 
+      githubLink: "https://github.com/cpars/Weather-Dashboard",
+      image: "/images/weather-dashboard.png",
     }
   ];
   
