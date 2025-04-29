@@ -1,3 +1,4 @@
+// src/components/ProjectCard.tsx
 import {
   Box,
   Heading,
@@ -9,7 +10,12 @@ import {
   HStack,
   Button,
 } from "@chakra-ui/react";
-import VideoModal from "./VideoModal";
+import { motion } from "framer-motion"; // 🌀 Import motion
+
+import VideoModal from "./VideoModal"; // keeping your video modal support
+
+// Make a motion wrapper around Box
+const MotionBox = motion(Box);
 
 type ProjectCardProps = {
   title: string;
@@ -18,7 +24,7 @@ type ProjectCardProps = {
   image?: string;
   demoLink?: string;
   githubLink?: string;
-  testLink?: string;
+  testLink?: string; // Optional test link
 };
 
 const ProjectCard = ({
@@ -31,7 +37,7 @@ const ProjectCard = ({
   testLink,
 }: ProjectCardProps) => {
   return (
-    <Box
+    <MotionBox
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
@@ -39,7 +45,16 @@ const ProjectCard = ({
       bg="white"
       _dark={{ bg: "gray.800" }}
       boxShadow="md"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6 }}
+      whileHover={{
+        scale: 1.03,
+        boxShadow: "0px 8px 25px rgba(0, 255, 255, 0.2)",
+      }}
     >
+      {/* Optional image */}
       {image && (
         <Image
           src={image}
@@ -55,6 +70,7 @@ const ProjectCard = ({
 
       <Text mb={4}>{description}</Text>
 
+      {/* Tech stack tags */}
       <HStack spacing={2} mb={4} wrap="wrap">
         {tech.map((item) => (
           <Tag key={item} colorScheme="teal">
@@ -63,28 +79,24 @@ const ProjectCard = ({
         ))}
       </HStack>
 
+      {/* Action buttons */}
       <Stack direction="row" spacing={4}>
-        {/* Demo Link (Primary) */}
-        {demoLink && demoLink.includes("youtu.be") ? (
+        {demoLink && demoLink.includes("youtu") ? (
           <VideoModal
             videoUrl={demoLink.replace("watch?v=", "embed/")}
             buttonLabel="Watch Demo"
           />
         ) : (
-          demoLink && (
-            <Button
-              as={Link}
-              href={demoLink}
-              isExternal
-              colorScheme="teal"
-              size="sm"
-            >
-              Live Demo
-            </Button>
-          )
+          <Button
+            as={Link}
+            href={demoLink}
+            isExternal
+            colorScheme="teal"
+            size="sm"
+          >
+            Live Demo
+          </Button>
         )}
-
-        {/* GitHub Link */}
         {githubLink && (
           <Button
             as={Link}
@@ -96,12 +108,10 @@ const ProjectCard = ({
             GitHub
           </Button>
         )}
-
-        {/* Test Link (Secondary) */}
-        {testLink && testLink.includes("youtu.be") ? (
+        {testLink && testLink.includes("youtu") ? (
           <VideoModal
             videoUrl={testLink.replace("watch?v=", "embed/")}
-            buttonLabel="Cypress Demo"
+            buttonLabel="Watch Demo"
           />
         ) : (
           testLink && (
@@ -112,12 +122,12 @@ const ProjectCard = ({
               variant="outline"
               size="sm"
             >
-              Test Demo
+              Cypress Demo
             </Button>
           )
         )}
       </Stack>
-    </Box>
+    </MotionBox>
   );
 };
 
