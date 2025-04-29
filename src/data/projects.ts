@@ -4,7 +4,7 @@ const projects = [
       description:
         "A collaborative storytelling app where users create branching narratives, comment, and vote.",
       tech: ["React", "TypeScript", "GraphQL", "MongoDB", "Apollo", "Cypress"],
-      image: "../../images/Weaver_Projects_Page.png", // optional
+      image: "../../images/Weaver_Projects_Page.png", 
       demoLink: "https://weaver-9su3.onrender.com/",
       githubLink: "https://github.com/ccasalme/Weaver",
     },
@@ -64,7 +64,7 @@ const projects = [
         "A command-line application that allows users to create, manage, and interact with different types of vehicles such as Cars, Trucks, and Motorbikes. Built with Node.js, TypeScript, and Inquirer.js.",
       tech: ["Node.js", "TypeScript", "Inquirer.js"],
       githubLink: "https://github.com/cpars/Vehicle-Builder", 
-      demoLink: "https://app.screencastify.com/v3/watch/a8dzX94wZ4gr7s4QcS2k", 
+      demoLink: "https://youtu.be/LWbo99gxOdk", 
       image: "/images/Vehicle-Builder.gif", 
     },
     {
