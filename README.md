@@ -1,54 +1,70 @@
-# React + TypeScript + Vite
+# 🌐 Corey Parsons — Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal developer portfolio! This site is built to showcase my journey, skills, and selected projects as I transition into a full-time software development career. It's a living document of what I’ve built, what I’m learning, and what I’m passionate about.
 
-Currently, two official plugins are available:
+Live Site 👉 [https://coreyparsons.dev](https://coreyparsons.dev)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 About Me
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+I’m Corey — a former QA engineer, CNC designer, and recent full-stack bootcamp graduate based in Georgia. I enjoy transforming complex problems into clean, interactive web experiences.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+This portfolio is built with a blend of Chakra UI + custom animation layers and includes some of the best projects I’ve built so far.
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend**: React, TypeScript, Vite, Chakra UI, Framer Motion
+- **Backend**: Node.js, Express, MongoDB/PostgreSQL (project-dependent)
+- **Testing**: Cypress, Vitest
+- **Deployment**: Render, Netlify
+- **CI/CD**: GitHub Actions
+
+---
+
+## ✨ Key Features
+
+- 💻 Fully responsive and mobile-friendly
+- 🎨 Animated gradient background with orbiting visuals
+- ⚙️ Smooth transitions between pages
+- 📄 Modal-based resume preview + download
+- 🧠 Typewriter hero effect on homepage
+- 📦 Organized project cards with live demos and GitHub links
+- 🔐 Deployed with SSL and custom domain
+
+---
+
+## 📁 Folder Structure (Simplified)
+
+```
+root/
+├── public/
+│   └── assets, images, favicon, tech icons
+├── src/
+│   ├── components/     # Reusable UI elements
+│   ├── pages/          # Home, About, Projects, Resume, Contact
+│   ├── hooks/          # Custom hooks (e.g., useDelayedNavigation)
+│   ├── styles/         # CSS or theme extensions
+│   └── App.tsx         # Main app layout and routing
+├── .env
+├── vite.config.ts
+└── package.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📬 Contact
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Want to collaborate or just say hi?
+
+📧 Email: cparsons0730@yahoo.com  
+🌐 Website: [coreyparsons.dev](https://coreyparsons.dev)  
+🐙 GitHub: [@coreyparsons](https://github.com/cpars)
+
+---
+
+## 📝 License
+
+This portfolio is open for learning and inspiration — feel free to fork it. If you use it publicly, a little credit goes a long way! Licensed under [MIT](LICENSE).
